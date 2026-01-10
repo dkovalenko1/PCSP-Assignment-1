@@ -4,18 +4,20 @@ public class Matrix
 {
     private readonly int[,] _matrix;
     private readonly int _len;
+    private bool _sorted;
+
+    public int Size => _len;
+    public bool IsSorted => _sorted;
+    public int this[int i, int j] => _matrix[i, j];
 
     public Matrix(int n)
     {
+        ArgumentOutOfRangeException.ThrowIfLessThanOrEqual(n, 1);
         _matrix = new int[n, n];
         _len = n;
-        GenerateRandomMatrix();
-        PrintMatrix();
-        PlaceGreatestOnDiagonal();
-        Console.WriteLine("---");
-        PrintMatrix();
+        _sorted = false;
     }
-    private void GenerateRandomMatrix()
+    public void GenerateRandomMatrix()
     {
         for (var i = 0; i < _len; i++)
         {
@@ -24,17 +26,7 @@ public class Matrix
         }
     }
 
-    private void PrintMatrix()
-    {
-        for (var i = 0; i < _len; i++)
-        {
-            for (var j =  0; j < _len; j++)
-                Console.Write(_matrix[i, j] + " "); 
-            Console.WriteLine();
-        }
-    }
-    
-    private void PlaceGreatestOnDiagonal()
+    public void PlaceRowMaximumOnDiagonal()
     {
         for (var i = 0; i < _len; i++)
         {
@@ -48,5 +40,6 @@ public class Matrix
             if (greatestColIndex != i)
                 (_matrix[i, i], _matrix[i, greatestColIndex]) = (_matrix[i, greatestColIndex], _matrix[i, i]);
         }
+        _sorted = true;
     }
 }
