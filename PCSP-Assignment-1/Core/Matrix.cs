@@ -22,7 +22,7 @@ public class Matrix
         for (var i = 0; i < _len; i++)
         {
             for (var j = 0; j < _len; j++)
-                _matrix[i, j] = Random.Shared.Next(10, 99);
+                _matrix[i, j] = Random.Shared.Next();
         }
     }
 

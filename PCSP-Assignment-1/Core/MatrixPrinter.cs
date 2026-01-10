@@ -4,7 +4,7 @@ public static class MatrixPrinter
 {
     public static void Print(Matrix matrix)
     {
-        Console.WriteLine("\nYour matrix:");
+        Console.WriteLine("Your matrix:");
         for (var i = 0; i < matrix.Size; i++)
         {
             for (var j = 0; j < matrix.Size; j++)
