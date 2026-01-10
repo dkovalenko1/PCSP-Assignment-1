@@ -1,3 +1,5 @@
+using PCSP_Assignment_1.Algorithms;
+
 namespace PCSP_Assignment_1.Core;
 
 public class Matrix
@@ -8,7 +10,14 @@ public class Matrix
 
     public int Size => _len;
     public bool IsSorted => _sorted;
-    public int this[int i, int j] => _matrix[i, j];
+
+    public int this[int i, int j]
+    {
+        get => _matrix[i, j];
+        set => _matrix[i, j] = value;
+    }
+
+    public void MarkAsSorted() => _sorted = true;
 
     public Matrix(int n)
     {
@@ -17,29 +26,10 @@ public class Matrix
         _len = n;
         _sorted = false;
     }
-    public void GenerateRandomMatrix()
-    {
-        for (var i = 0; i < _len; i++)
-        {
-            for (var j = 0; j < _len; j++)
-                _matrix[i, j] = Random.Shared.Next();
-        }
-    }
+    
+    public void GenerateRandom()
+        => MatrixGenerator.FillRandom(this);
 
-    public void PlaceRowMaximumOnDiagonal()
-    {
-        for (var i = 0; i < _len; i++)
-        {
-            var greatestColIndex = 0;
-            for (var j = 0; j < _len; j++)
-            {
-                if (_matrix[i, j] > _matrix[i, greatestColIndex])
-                    greatestColIndex = j;
-            }
-
-            if (greatestColIndex != i)
-                (_matrix[i, i], _matrix[i, greatestColIndex]) = (_matrix[i, greatestColIndex], _matrix[i, i]);
-        }
-        _sorted = true;
-    }
+    public void PlaceMaxOnDiagonal()
+        => MatrixSorter.PlaceRowMaximumOnDiagonal(this);
 }
