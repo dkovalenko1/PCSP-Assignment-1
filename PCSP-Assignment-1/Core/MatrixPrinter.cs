@@ -5,9 +5,9 @@ public static class MatrixPrinter
     public static void Print(Matrix matrix)
     {
         Console.WriteLine("Your matrix:");
-        for (var i = 0; i < matrix.Size; i++)
+        for (var i = 0; i < matrix.SizeOfSide; i++)
         {
-            for (var j = 0; j < matrix.Size; j++)
+            for (var j = 0; j < matrix.SizeOfSide; j++)
             {
                 if (i == j && matrix.IsSorted)
                     Console.ForegroundColor = ConsoleColor.Green;

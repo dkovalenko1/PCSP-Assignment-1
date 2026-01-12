@@ -1,15 +1,15 @@
 using PCSP_Assignment_1.Core;
 
-namespace PCSP_Assignment_1.Algorithms;
+namespace PCSP_Assignment_1.Algorithms.Sequential;
 
-public static class MatrixSorter
+public static class MatrixSorterSequential
 {
-    public static void PlaceRowMaximumOnDiagonal(Matrix matrix)
+    public static void PlaceRowMaximumOnDiagonalSequential(Matrix matrix)
     {
-        for (var i = 0; i < matrix.Size; i++)
+        for (var i = 0; i < matrix.SizeOfSide; i++)
         {
             var maxColIndex = 0;
-            for (var j = 0; j < matrix.Size; j++)
+            for (var j = 0; j < matrix.SizeOfSide; j++)
             {
                 if (matrix[i, j] > matrix[i, maxColIndex])
                     maxColIndex = j;
