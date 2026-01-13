@@ -8,9 +8,9 @@ Console.WriteLine($"\nGeneration time seq: {genTime}");
 var sortTime = ActionTimer.Measure(matrix.PlaceMaxOnDiagonalSeq);
 Console.WriteLine($"Sorting time seq: {sortTime}\n");
 
-var matrix1 = new Matrix(5);
-var genTime1 = ActionTimer.Measure(() => matrix1.GenerateRandomParallel(2));
-Console.WriteLine($"\nGeneration time parallel: {genTime1}");
-MatrixPrinter.Print(matrix1);
-
+var matrix1 = new Matrix(10000);
+var genTime1 = ActionTimer.Measure(() => matrix1.GenerateRandomParallel(8));
+Console.WriteLine($"Generation time parallel: {genTime1}");
+var sortTime1 = ActionTimer.Measure(() => matrix1.PlaceMaxOnDiagonalParallel(8));
+Console.WriteLine($"Sorting time in parallel: {sortTime1}\n");
 

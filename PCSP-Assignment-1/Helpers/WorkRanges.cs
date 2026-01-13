@@ -8,12 +8,14 @@ public struct WorkRange(int startIndex, int endIndex)
 
 public static class WorkRanges
 {
-    public static WorkRange[] CreateForMatrix(int matrixSide, int threadCount)
+    public static WorkRange[] Create(int matrixSide, int threadCount, bool forGen)
     {
+        if (!forGen)
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(threadCount, matrixSide);
         var ranges = new WorkRange[threadCount];
         var matrixSize = matrixSide * matrixSide;
-        int baseSize = matrixSize / threadCount;
-        var rem = matrixSize % threadCount;
+        int baseSize = forGen ? matrixSize / threadCount : matrixSide / threadCount;
+        var rem = forGen ? matrixSize % threadCount : matrixSide % threadCount;
         var start = 0;
         for (var t = 0; t < threadCount; t++)
         {

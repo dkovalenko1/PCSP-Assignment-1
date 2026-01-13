@@ -43,4 +43,7 @@ public class Matrix
 
     public void PlaceMaxOnDiagonalSeq()
         => MatrixSorterSequential.PlaceRowMaximumOnDiagonalSequential(this);
+    
+    public void PlaceMaxOnDiagonalParallel(int threadCount)
+        => MatrixSorterParallel.PlaceRowMaximumOnDiagonalParallel(this, threadCount);
 }
