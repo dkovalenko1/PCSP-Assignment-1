@@ -9,7 +9,7 @@ var sortTime = ActionTimer.Measure(matrix.PlaceMaxOnDiagonalSeq);
 Console.WriteLine($"Sorting time seq: {sortTime}\n");
 
 var matrix1 = new Matrix(5);
-var genTime1 = ActionTimer.Measure(() => matrix1.GenerateRandomParallel(1));
+var genTime1 = ActionTimer.Measure(() => matrix1.GenerateRandomParallel(2));
 Console.WriteLine($"\nGeneration time parallel: {genTime1}");
 MatrixPrinter.Print(matrix1);
 

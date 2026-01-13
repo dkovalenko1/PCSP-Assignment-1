@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using PCSP_Assignment_1.Core;
 using PCSP_Assignment_1.Helpers;
 
@@ -9,8 +10,10 @@ public static class MatrixGenParallel
     {
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(threadCount);
         var matrixSide = matrix.SizeOfSide;
+        ArgumentOutOfRangeException.ThrowIfGreaterThan(threadCount, matrixSide * matrixSide);
         var threads = new Thread[threadCount];
         var ranges = WorkRanges.CreateForMatrix(matrixSide, threadCount);
+        var exceptions = new ConcurrentBag<Exception>();
         for (var t = 0; t < threadCount; t++)
         {
             var threadIndex = t;
@@ -19,21 +22,22 @@ public static class MatrixGenParallel
             {
                 try
                 {
+                    var random = new Random();
                     for (var i = range.StartIndex; i < range.EndIndex; i++)
                     {
-                        matrix[i] = Random.Shared.Next();
+                        matrix[i] = random.Next();
                     }
-                    Console.WriteLine($"Thread {threadIndex + 1} finished");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    exceptions.Add(ex);
                 }
             });
             threads[threadIndex].Start();
         }
         for (var t = 0; t < threadCount; t++)
             threads[t].Join();
-        Console.WriteLine("All threads finished");
+        if (!exceptions.IsEmpty)
+            throw new AggregateException(exceptions);
     }
 }
