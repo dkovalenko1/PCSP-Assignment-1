@@ -10,16 +10,17 @@ public static class MatrixGenParallel
         var matrixSide = matrix.SizeOfSide;
         var threads = new Thread[threadCount];
         var ranges = WorkRanges.Create(matrixSide, threadCount, true);
+        var baseSeed = (ulong)Environment.TickCount64;
         for (var t = 0; t < threadCount; t++)
         {
             var threadIndex = t;
             var range = ranges[threadIndex];
             threads[threadIndex] = new Thread(() =>
             {
-                var random = new Random();
+                var threadRng = Randomizer.ForThread(threadIndex, baseSeed);
                 for (var i = range.StartIndex; i < range.EndIndex; i++)
                 {
-                    matrix[i] = random.Next();
+                    matrix[i] = threadRng.Next();
                 }
             });
             threads[threadIndex].Start();
