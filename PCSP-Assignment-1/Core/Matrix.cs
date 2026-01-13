@@ -1,3 +1,4 @@
+using PCSP_Assignment_1.Algorithms.Parallel;
 using PCSP_Assignment_1.Algorithms.Sequential;
 
 namespace PCSP_Assignment_1.Core;
@@ -36,6 +37,9 @@ public class Matrix
     
     public void GenerateRandomSeq()
         => MatrixGenSequential.FillRandomSequential(this);
+    
+    public void GenerateRandomParallel(int threadCount) 
+        => MatrixGenParallel.FillRandomParallel(this, threadCount);
 
     public void PlaceMaxOnDiagonalSeq()
         => MatrixSorterSequential.PlaceRowMaximumOnDiagonalSequential(this);
