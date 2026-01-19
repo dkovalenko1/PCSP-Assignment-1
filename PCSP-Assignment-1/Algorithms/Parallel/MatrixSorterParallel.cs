@@ -8,9 +8,9 @@ public static class MatrixSorterParallel
     public static void PlaceRowMaximumOnDiagonalParallel(Matrix matrix, int threadCount)
     {
         var matrixSide = matrix.SizeOfSide;
-        var threads = new Thread[threadCount];
         var ranges = WorkRanges.Create(matrixSide, threadCount, false);
-        for (var t = 0; t < threadCount; t++)
+        var threads = new Thread[ranges.Length];
+        for (var t = 0; t < ranges.Length; t++)
         {
             var threadIndex = t;
             var range = ranges[threadIndex];
@@ -32,7 +32,7 @@ public static class MatrixSorterParallel
             });
             threads[threadIndex].Start();
         }
-        for (var t = 0; t < threadCount; t++)
+        for (var t = 0; t < threads.Length; t++)
             threads[t].Join();
         matrix.MarkAsSorted();
     }

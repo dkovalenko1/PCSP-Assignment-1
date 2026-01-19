@@ -11,7 +11,9 @@ public static class WorkRanges
     public static WorkRange[] Create(int matrixSide, int threadCount, bool forGen)
     {
         if (!forGen)
-            ArgumentOutOfRangeException.ThrowIfGreaterThan(threadCount, matrixSide);
+            if (threadCount >= matrixSide)
+                threadCount = matrixSide;
+        
         var ranges = new WorkRange[threadCount];
         var matrixSize = matrixSide * matrixSide;
         int baseSize = forGen ? matrixSize / threadCount : matrixSide / threadCount;
