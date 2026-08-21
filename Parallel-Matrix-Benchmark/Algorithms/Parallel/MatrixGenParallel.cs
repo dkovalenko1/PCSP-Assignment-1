@@ -1,7 +1,7 @@
-using PCSP_Assignment_1.Core;
-using PCSP_Assignment_1.Helpers;
+using ParallelMatrixBenchmark.Core;
+using ParallelMatrixBenchmark.Helpers;
 
-namespace PCSP_Assignment_1.Algorithms.Parallel;
+namespace ParallelMatrixBenchmark.Algorithms.Parallel;
 
 public static class MatrixGenParallel
 {

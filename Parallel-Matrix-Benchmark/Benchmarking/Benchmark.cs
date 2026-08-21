@@ -1,7 +1,7 @@
 using System.Globalization;
-using PCSP_Assignment_1.Core;
+using ParallelMatrixBenchmark.Core;
 
-namespace PCSP_Assignment_1.Benchmarking;
+namespace ParallelMatrixBenchmark.Benchmarking;
 
 public class Benchmark
 {

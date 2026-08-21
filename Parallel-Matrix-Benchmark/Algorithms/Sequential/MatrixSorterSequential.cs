@@ -1,6 +1,6 @@
-using PCSP_Assignment_1.Core;
+using ParallelMatrixBenchmark.Core;
 
-namespace PCSP_Assignment_1.Algorithms.Sequential;
+namespace ParallelMatrixBenchmark.Algorithms.Sequential;
 
 public static class MatrixSorterSequential
 {

@@ -1,7 +1,9 @@
 import pandas as pd
+from pathlib import Path
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('~/RiderProjects/PCSP-Assignment-1/PCSP-Assignment-1/bin/Release/net10.0/benchmark_results.csv')
+csv_path = Path(__file__).resolve().parents[2] / 'bin' / 'Release' / 'net10.0' / 'benchmark_results.csv'
+df = pd.read_csv(csv_path)
 
 sizes_to_plot = [50, 100, 500, 1000, 10000]
 threads_to_plot = [1, 6, 12, 24, 48, 12*8, 12*16]

@@ -1,4 +1,4 @@
-namespace PCSP_Assignment_1.Core;
+namespace ParallelMatrixBenchmark.Core;
 
 public static class MatrixPrinter
 {

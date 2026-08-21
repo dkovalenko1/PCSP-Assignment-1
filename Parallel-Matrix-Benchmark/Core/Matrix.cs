@@ -1,7 +1,7 @@
-using PCSP_Assignment_1.Algorithms.Parallel;
-using PCSP_Assignment_1.Algorithms.Sequential;
+using ParallelMatrixBenchmark.Algorithms.Parallel;
+using ParallelMatrixBenchmark.Algorithms.Sequential;
 
-namespace PCSP_Assignment_1.Core;
+namespace ParallelMatrixBenchmark.Core;
 
 public class Matrix
 {

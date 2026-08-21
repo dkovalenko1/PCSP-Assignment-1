@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace PCSP_Assignment_1.Benchmarking;
+namespace ParallelMatrixBenchmark.Benchmarking;
 
 public static class ActionTimer
 {

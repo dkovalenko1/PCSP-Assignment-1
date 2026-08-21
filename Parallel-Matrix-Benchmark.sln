@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCSP-Assignment-1", "PCSP-Assignment-1\PCSP-Assignment-1.csproj", "{13400B20-186E-4D73-8FD9-26FCD3094DD0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parallel-Matrix-Benchmark", "Parallel-Matrix-Benchmark\Parallel-Matrix-Benchmark.csproj", "{13400B20-186E-4D73-8FD9-26FCD3094DD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

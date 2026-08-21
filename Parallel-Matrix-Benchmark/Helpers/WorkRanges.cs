@@ -1,4 +1,4 @@
-namespace PCSP_Assignment_1.Helpers;
+namespace ParallelMatrixBenchmark.Helpers;
 
 public struct WorkRange(int startIndex, int endIndex)
 {

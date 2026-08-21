@@ -1,4 +1,4 @@
-using PCSP_Assignment_1.Benchmarking;
+using ParallelMatrixBenchmark.Benchmarking;
 
 var benchmark = new Benchmark();
 benchmark.Run();
